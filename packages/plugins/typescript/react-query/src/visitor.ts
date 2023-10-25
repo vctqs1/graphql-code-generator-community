@@ -195,12 +195,12 @@ export class ReactQueryVisitor extends ClientSideBaseVisitor<
         query += `\nuse${operationName}.document = ${documentVariableName};\n`;
       }
       if (this.config.exposeQueryKeys) {
-        query += `\n${generateQueryKeyMaker(
+        query += generateQueryKeyMaker(
           node,
           operationName,
           operationVariablesTypes,
           hasRequiredVariables,
-        )};\n`;
+        );
       }
       if (this.config.exposeQueryRootKeys) {
         query += `\n${generateQueryRootKeyMaker(node, operationName)}`;
